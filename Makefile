@@ -6,7 +6,7 @@ BPF_CFLAGS = -O2 -g -target bpf -I/usr/include/aarch64-linux-gnu
 SRC = src
 BIN = bin
 
-all: $(BIN) $(BIN)/list $(BIN)/load $(BIN)/xdp_checker.o
+all: $(BIN) $(BIN)/list $(BIN)/load $(BIN)/xdp_filter.o
 
 $(BIN):
 	mkdir -p $(BIN)
@@ -17,7 +17,7 @@ $(BIN)/list: $(SRC)/list.c
 $(BIN)/load: $(SRC)/load.c
 	$(CC) $< -o $@ $(CFLAGS)
 
-$(BIN)/xdp_checker.o: $(SRC)/xdp_checker.c
+$(BIN)/xdp_checker.o: $(SRC)/xdp_filter.c
 	$(CLANG) $(BPF_CFLAGS) -c $< -o $@
 
 clean:
