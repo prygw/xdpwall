@@ -1,7 +1,7 @@
 #!/bin/bash
 #run ip a and check interface
 INTERFACE="enp2s0"
-XDP_OBJ="../bin/xdp_checker.o"
+XDP_OBJ="../bin/xdp_filter.o"
 XDP_SEC="xdp"
 LOADER="../bin/load"
 LISTER="../bin/list"
